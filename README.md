@@ -30,3 +30,19 @@ The backend for the Airbnb Clone project is designed to provide a robust and sca
 - DevOps Engineer: Handles deployment, monitoring, and scaling of the backend services.
 - QA Engineer: Ensures the backend functionalities are thoroughly tested and meet quality standards.
 
+# Database Design Proficiency:
+Plan and document a relational database structure with entities, attributes, and relationships that mirror real-world requirements.
+
+# Database Design 
+Entities and fields
+- Users { user_id, email, Contact }
+
+- Properties { property_id, property_location }
+  
+- Bookings { booking_id, customer_name }
+  
+- Payments { payment_id,  booking_id }
+  
+- Reviews { user_id, review_category }
+
+
