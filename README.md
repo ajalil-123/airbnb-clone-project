@@ -55,3 +55,12 @@ Entities and fields
 - Review System: Allow users to leave reviews and ratings for properties.
   
 - Data Optimization: Ensure efficient data retrieval and storage through database optimizations.
+
+
+# API Security
+Explain the key security measures that will be implemented (e.g., authentication, authorization, rate limiting). Provide a brief explanation of why security is crucial for each key area of the project (e.g., protecting user data, securing payments, etc.).
+
+
+# CI/CD Pipeline
+Briefly explain what CI/CD pipelines are and why they are important for the project. Mention the tools that could be used for this (e.g., GitHub Actions, Docker, etc.).
+
