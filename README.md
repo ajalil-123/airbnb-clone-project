@@ -58,9 +58,77 @@ Entities and fields
 
 
 # API Security
-Explain the key security measures that will be implemented (e.g., authentication, authorization, rate limiting). Provide a brief explanation of why security is crucial for each key area of the project (e.g., protecting user data, securing payments, etc.).
+1. Authentication
+Method: Token-based authentication using JWT (JSON Web Tokens) via Django REST Framework SimpleJWT.
+
+Purpose: Ensures that only registered and verified users can access protected endpoints.
+
+Why it matters: Prevents unauthorized access to personal data, such as booking details and payment history.
+
+2. Authorization
+Method: Role-based access control (RBAC), differentiating between regular users, hosts, and admins.
+
+Purpose: Restricts what each user type can access or modify—for example, only property owners can edit their listings.
+
+Why it matters: Prevents misuse of privileges and ensures users can only perform actions they are permitted to.
+
+3. Rate Limiting
+Tool: Django Ratelimit or integration with API gateways like NGINX or Cloudflare.
+
+Purpose: Limits the number of requests a user/IP can make in a given time.
+
+Why it matters: Prevents brute force attacks, DoS attempts, and abuse of endpoints (e.g., spamming bookings).
+
+4. HTTPS Enforcement
+Deployment Practice: Use SSL certificates to enforce HTTPS in production.
+
+Purpose: Encrypts data in transit between the client and the server.
+
+Why it matters: Protects sensitive information like passwords and credit card details from interception.
+
+5. Input Validation & Sanitization
+Tool: Django’s built-in form validation and DRF serializer validation.
+
+Purpose: Validates all inputs and strips out potentially harmful data (e.g., SQL injections, XSS).
+
+Why it matters: Prevents injection attacks that could compromise the system.
+
+6. Secure Storage of Sensitive Data
+Method: Passwords are hashed using Django's default PBKDF2 algorithm. Payment credentials, if stored, must be encrypted or tokenized via a third-party provider like Stripe.
+
+Why it matters: Even if the database is compromised, sensitive information cannot be easily exploited.
+
+7. CSRF Protection
+Tool: Django’s built-in CSRF middleware (mainly for browser-based endpoints).
+
+Why it matters: Protects authenticated users from unauthorized actions triggered from malicious sites.
+
+
 
 
 # CI/CD Pipeline
-Briefly explain what CI/CD pipelines are and why they are important for the project. Mention the tools that could be used for this (e.g., GitHub Actions, Docker, etc.).
+A Continuous Integration/Continuous Deployment (CI/CD) pipeline ensures that code changes are automatically tested and deployed, enabling faster and more reliable development.
+
+What is CI/CD?
+CI (Continuous Integration): Automatically runs tests and checks each time code is pushed to the repository. It ensures that new code integrates well with the existing system.
+
+CD (Continuous Deployment): Automatically deploys code to the staging or production environment after successful integration and testing.
+
+Why CI/CD is Important for This Project
+Faster Releases: Developers can ship features like new booking flows or payment options quickly.
+
+Reduced Bugs: Automated testing in CI detects errors early before they reach production.
+
+Consistency: Ensures all deployments are done in the same repeatable way using Docker containers.
+
+Team Collaboration: Multiple developers can contribute simultaneously without integration conflicts.
+
+Tools to Use
+GitHub Actions: For running unit tests, linting, and automating Docker builds/pushes.
+
+Docker: To containerize the Django app, ensuring consistent behavior across development and production.
+
+Heroku / PythonAnywhere / Render: As the hosting platform to deploy the app with ease.
+
+PostgreSQL Add-ons: For managing the live database environment.
 
